@@ -1,0 +1,25 @@
+Empire Build landing oldal – képforrások
+==========================================
+Minden kép a Pexels.com-ról származik, Pexels licenc alatt
+(ingyenes kereskedelmi felhasználás, nincs szükség attribúcióra).
+https://www.pexels.com/license/
+
+Ezek STOCK fotók, NEM az Empire Build saját projektjei.
+Publikálás előtt cserélje valódi cégfotókra, ha van rá lehetőség.
+
+hero.jpg           - pexels.com/photo/18254867 (Willian Justen de Vasconcellos)
+svc-generalkiv.jpg - pexels.com/photo/2383650  (Davide Locatelli)
+svc-modul.jpg      - pexels.com/photo/15614674
+svc-belsoep.jpg    - pexels.com/photo/20390760 (Paul Seling)
+svc-burkolas.jpg   - pexels.com/photo/9690090
+svc-festes.jpg     - pexels.com/photo/5493653  (Antoni Shkraba)
+svc-uveg.jpg       - pexels.com/photo/6444248  (Max Vakhtbovych)
+ref-1.jpg          - pexels.com/photo/10202865 (This Vikto)
+ref-2.jpg          - pexels.com/photo/13890649 (Aravind P.S.)
+ref-3.jpg          - pexels.com/photo/16368435 (Marianna Zuzanna)
+ref-4.jpg          - pexels.com/photo/13319079
+ref-5.jpg          - pexels.com/photo/5691530  (Ksenia Chernaya)
+ref-6.jpg          - pexels.com/photo/5691533  (Ksenia Chernaya)
+ref-7.jpg          - pexels.com/photo/8134804  (Max Vakhtbovych)
+ref-8.jpg          - pexels.com/photo/7587880
+cta.jpg            - pexels.com/photo/6238679
