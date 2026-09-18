@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Empire Build – Felújítás fix áron, fix határidőre | Egész Magyarországon</title>
+<meta name="description" content="Teljes lakás- és házfelújítás, bővítés, egyedi üvegmunka és kulcsrakész házépítés egy kézből. Fix ár, fix határidő, 100% garancia. Ingyenes helyszíni felmérés egész Magyarországon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   EMPIRE BUILD — swap these to real brand values:
+   --neon  : primary neon accent (CTA + highlights)
+   --phone / --phone-display : replace placeholder phone number
+   ============================================================ */
+:root{
+  --ink:#0B0B0F;
+  --ink-2:#15161c;
+  --paper:#ffffff;
+  --paper-2:#f4f6f2;
+  --muted:#5c6067;
+  --line:#e7e8e4;
+  --neon:#B4FF39;            /* <-- EMPIRE BUILD SZÍN IDE */
+  --neon-ink:#0B0B0F;
+  --neon-glow:rgba(180,255,57,.45);
+  --radius:16px;
+  --maxw:1120px;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{
+  font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:clip;
+}
+h1,h2,h3,.display{font-family:"Archivo","Manrope",system-ui,sans-serif;font-weight:900;line-height:1.02;letter-spacing:-.02em}
+img{max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+.eyebrow{font-family:"Archivo";font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+/* highlight swipe */
+.hl{position:relative;z-index:0}
+.hl::after{content:"";position:absolute;left:-3px;right:-3px;bottom:.05em;height:.42em;background:var(--neon);z-index:-1;transform:skewX(-7deg);border-radius:3px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:"Archivo";font-weight:800;font-size:1rem;padding:16px 26px;border-radius:12px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;white-space:nowrap;text-align:center}
+.btn-primary{background:var(--neon);color:var(--neon-ink);box-shadow:0 8px 30px var(--neon-glow)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--neon-glow)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:#fff}
+.btn-lg{padding:19px 34px;font-size:1.08rem}
+.btn svg{width:20px;height:20px}
+
+/* header */
+header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:"Archivo";font-weight:900;font-size:1.35rem;letter-spacing:-.03em;display:flex;align-items:center;gap:.5rem}
+.logo .mark{width:30px;height:30px;background:var(--ink);border-radius:7px;display:grid;place-items:center;color:var(--neon);font-size:1rem;box-shadow:inset 0 0 0 2px var(--ink)}
+.logo b{color:var(--ink)}
+.logo span{color:var(--muted);font-weight:700}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-phone{font-family:"Archivo";font-weight:800;font-size:1rem;display:none;align-items:center;gap:.45rem}
+.nav-phone svg{width:18px;height:18px;color:var(--ink)}
+.btn-sm{padding:11px 18px;font-size:.92rem}
+
+/* hero */
+.hero{padding:54px 0 46px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;top:-120px;right:-140px;width:420px;height:420px;background:radial-gradient(circle,var(--neon-glow),transparent 62%);filter:blur(30px);z-index:-1;opacity:.7}
+.hero .eyebrow{margin-bottom:18px}
+.hero h1{font-size:clamp(2.15rem,7.4vw,4.15rem);margin-bottom:22px}
+.hero .sub{font-size:clamp(1.05rem,3.4vw,1.28rem);color:#33363c;max-width:620px;margin-bottom:30px;font-weight:500}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:30px}
+.trust{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center}
+.trust .t{display:flex;align-items:center;gap:.5rem;font-weight:700;font-size:.95rem;color:var(--ink)}
+.trust .t svg{width:20px;height:20px;color:#1a7a1f;flex:none}
+.chk{width:22px;height:22px;border-radius:50%;background:var(--neon);display:grid;place-items:center;flex:none}
+.chk svg{width:14px;height:14px;color:var(--ink)}
+
+/* section base */
+section{padding:64px 0}
+.sec-head{max-width:680px;margin-bottom:40px}
+.sec-head h2{font-size:clamp(1.8rem,5.2vw,2.7rem);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:1.08rem;font-weight:500}
+
+/* pain (dark) */
+.pain{background:var(--ink);color:#fff}
+.pain .eyebrow{color:var(--neon)}
+.pain h2{color:#fff}
+.neon-text{color:var(--neon);text-shadow:0 0 22px var(--neon-glow)}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:36px}
+.pain-card{background:var(--ink-2);border:1px solid #24252d;border-radius:var(--radius);padding:26px 22px}
+.pain-card .x{width:42px;height:42px;border-radius:11px;background:rgba(255,80,80,.14);display:grid;place-items:center;margin-bottom:16px}
+.pain-card .x svg{width:22px;height:22px;color:#ff6b6b}
+.pain-card h3{font-size:1.12rem;margin-bottom:8px;color:#fff}
+.pain-card p{color:#a7abb4;font-size:.96rem}
+.pain-bottom{margin-top:40px;text-align:center;font-family:"Archivo";font-weight:800;font-size:clamp(1.2rem,3.6vw,1.7rem);line-height:1.25}
+
+/* services */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.svc{border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;background:var(--paper);transition:transform .18s ease,box-shadow .2s ease,border-color .2s}
+.svc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(11,11,15,.08);border-color:var(--ink)}
+.svc .ic{width:52px;height:52px;border-radius:13px;background:var(--neon);display:grid;place-items:center;margin-bottom:18px;box-shadow:0 6px 20px var(--neon-glow)}
+.svc .ic svg{width:26px;height:26px;color:var(--ink)}
+.svc h3{font-size:1.24rem;margin-bottom:10px}
+.svc p{color:var(--muted);font-size:.98rem}
+
+/* why / features */
+.why{background:var(--paper-2)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.feat{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.feat .fi{width:40px;height:40px;border-radius:10px;background:var(--ink);display:grid;place-items:center;flex:none}
+.feat .fi svg{width:20px;height:20px;color:var(--neon)}
+.feat h3{font-size:1.06rem;margin-bottom:4px}
+.feat p{color:var(--muted);font-size:.92rem}
+
+/* stats */
+.stats{background:var(--ink);color:#fff;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:26px}
+.stat .n{font-family:"Archivo";font-weight:900;font-size:clamp(2.2rem,6vw,3.2rem);line-height:1;color:var(--neon);text-shadow:0 0 24px var(--neon-glow)}
+.stat .l{color:#b9bdc6;font-weight:600;margin-top:8px;font-size:.98rem}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;counter-reset:step}
+.step{position:relative;padding-top:8px}
+.step .num{font-family:"Archivo";font-weight:900;font-size:2.4rem;color:var(--ink);-webkit-text-stroke:0;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:14px;background:var(--neon);box-shadow:0 8px 24px var(--neon-glow);margin-bottom:16px}
+.step h3{font-size:1.14rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.96rem}
+
+/* testimonials */
+.tst-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px}
+.tst{border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;background:#fff}
+.stars{color:#f5a623;letter-spacing:2px;font-size:1.05rem;margin-bottom:12px}
+.tst p{font-size:1rem;color:#2c2f35;margin-bottom:18px;font-weight:500}
+.tst .who{display:flex;align-items:center;gap:12px}
+.tst .av{width:42px;height:42px;border-radius:50%;background:var(--ink);color:var(--neon);display:grid;place-items:center;font-family:"Archivo";font-weight:800}
+.tst .who b{display:block;font-size:.96rem}
+.tst .who span{color:var(--muted);font-size:.85rem}
+
+/* guarantee band */
+.guar{background:var(--neon);color:var(--neon-ink);text-align:center}
+.guar h2{font-size:clamp(1.6rem,5vw,2.4rem);margin-bottom:12px}
+.guar p{max-width:620px;margin:0 auto 24px;font-weight:600;font-size:1.05rem}
+
+/* faq */
+.faq-list{max-width:780px;margin:0 auto}
+.q{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:#fff}
+.q button{width:100%;text-align:left;background:none;border:0;padding:20px 22px;font-family:"Archivo";font-weight:800;font-size:1.05rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;color:var(--ink)}
+.q button .ch{flex:none;width:26px;height:26px;border-radius:50%;background:var(--paper-2);display:grid;place-items:center;transition:transform .2s,background .2s}
+.q button .ch svg{width:16px;height:16px}
+.q.open button .ch{background:var(--neon);transform:rotate(180deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.q .a p{padding:0 22px 20px;color:var(--muted);font-weight:500}
+
+/* final CTA + form */
+.final{background:var(--ink);color:#fff}
+.final .eyebrow{color:var(--neon)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.final h2{color:#fff;font-size:clamp(1.9rem,5.4vw,2.9rem);margin-bottom:16px}
+.final .sub{color:#b9bdc6;font-size:1.08rem;margin-bottom:24px;font-weight:500}
+.final .mini{display:flex;flex-direction:column;gap:12px;margin-top:8px}
+.final .mini .t{display:flex;align-items:center;gap:10px;color:#e7e8ea;font-weight:600}
+.final .mini .t svg{width:20px;height:20px;color:var(--neon);flex:none}
+.card-form{background:#fff;border-radius:20px;padding:30px;box-shadow:0 30px 70px rgba(0,0,0,.4)}
+.card-form h3{color:var(--ink);font-size:1.3rem;margin-bottom:6px}
+.card-form .fnote{color:var(--muted);font-size:.92rem;margin-bottom:20px;font-weight:500}
+.field{margin-bottom:14px}
+.field label{display:block;font-weight:700;font-size:.86rem;margin-bottom:6px;color:var(--ink)}
+.field input,.field select,.field textarea{width:100%;padding:14px 15px;border:1.5px solid var(--line);border-radius:11px;font-family:inherit;font-size:1rem;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px var(--neon-glow)}
+.field textarea{resize:vertical;min-height:70px}
+.card-form .btn{width:100%;margin-top:6px}
+.form-legal{color:var(--muted);font-size:.78rem;text-align:center;margin-top:12px;font-weight:500}
+.success{display:none;text-align:center;padding:26px 10px}
+.success .big{width:64px;height:64px;border-radius:50%;background:var(--neon);display:grid;place-items:center;margin:0 auto 16px;box-shadow:0 8px 26px var(--neon-glow)}
+.success .big svg{width:34px;height:34px;color:var(--ink)}
+.success h3{color:var(--ink);margin-bottom:8px}
+.success p{color:var(--muted);font-weight:500;margin-bottom:18px}
+
+/* footer */
+footer{background:#060608;color:#8b8f98;padding:44px 0 120px;font-size:.92rem}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start;margin-bottom:28px}
+footer .logo{color:#fff;font-size:1.2rem}
+footer .logo b{color:#fff}
+footer .logo span{color:#8b8f98}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 22px}
+.foot-links a{color:#c3c6cd;font-weight:600}
+.foot-links a:hover{color:var(--neon)}
+.foot-contact a{color:var(--neon);font-weight:700}
+.foot-bottom{border-top:1px solid #1c1d23;padding-top:20px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+
+/* sticky mobile bar */
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:80;display:grid;grid-template-columns:1fr 1.3fr;gap:10px;padding:10px 14px;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+.mbar .btn{padding:15px 10px;font-size:.98rem}
+
+@media(min-width:900px){
+  .nav-phone{display:flex}
+  footer{padding-bottom:44px}
+  .mbar{display:none}
+}
+@media(max-width:899px){
+  section{padding:52px 0}
+  .form-grid{grid-template-columns:1fr;gap:30px}
+  .final .info{text-align:center}
+  .final .mini{align-items:center}
+  .hero{padding:40px 0 36px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="wrap nav">
+    <div class="logo"><span class="mark">◆</span><b>EMPIRE</b>&nbsp;<span>BUILD</span></div>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+36300000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
+        +36 30 000 0000
+      </a>
+      <a class="btn btn-primary btn-sm" href="#ajanlat">Ajánlatkérés</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Felújítás &amp; építés · Egész Magyarországon</div>
+    <h1>A felújítás 3 dolgon szokott elbukni:<br><span class="hl">eltűnő mesterek</span>, csúszó határidő, kilőtt költségvetés.</h1>
+    <p class="sub">Az Empire Buildnél nem. <b>Fix áron, fix határidőre, egy kézből</b> kapod meg a teljes munkát – a bontástól a kulcsátadásig. 10+ év tapasztalat, 100% garancia.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-lg" href="#ajanlat">Kérek ingyenes felmérést</a>
+      <a class="btn btn-ghost btn-lg" href="tel:+36300000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
+        Hívjon most
+      </a>
+    </div>
+    <div class="trust">
+      <div class="t"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>10+ év tapasztalat</div>
+      <div class="t"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Fix ár &amp; fix határidő</div>
+      <div class="t"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>100% garancia</div>
+      <div class="t"><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></span>Ingyenes helyszíni felmérés</div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <h2>Nem a felújítás viszi el a pénzét. <span class="neon-text">A rossz kivitelező.</span></h2>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6 6 18M6 6l12 12"/></svg></div>
+        <h3>A mester nem jön vissza</h3>
+        <p>Elkezdi a munkát, felveszi az előleget, aztán napokra-hetekre eltűnik. A lakás bontva marad.</p>
+      </div>
+      <div class="pain-card">
+        <div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Csúszik a határidő</h3>
+        <p>A „2 hetes" felújítás 3 hónap lesz. Költözés halasztva, idegek a plafonon.</p>
+      </div>
+      <div class="pain-card">
+        <div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Elszáll a költségvetés</h3>
+        <p>Menet közben „még ez is kell", és a végszámla köszönőviszonyban sincs az eredeti árajánlattal.</p>
+      </div>
+      <div class="pain-card">
+        <div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 20h20M4 20V8l8-5 8 5v12M9 20v-6h6v6"/></svg></div>
+        <h3>Több cég, senki nem felel</h3>
+        <p>Külön kőműves, villanyszerelő, burkoló – és amikor gond van, egymásra mutogatnak.</p>
+      </div>
+    </div>
+    <p class="pain-bottom">Egy csapat. Egy szerződés. <span class="neon-text">Egy felelős a kulcsátadásig.</span></p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="szolgaltatasok">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Amit vállalunk</div>
+      <h2>Mindent egy kézből</h2>
+      <p>A kisebb fürdőfelújítástól a kulcsrakész új házig – tervezéstől a takarításig.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 11h.01M15 11h.01"/></svg></div>
+        <h3>Teljes lakás- &amp; házfelújítás</h3>
+        <p>Bontástól a burkoláson át a fürdőszoba- és konyhafelújításig – teljes körű kivitelezés.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V10l6-4v4l6-4v15M3 21h18M14 21V13h4v8"/></svg></div>
+        <h3>Házbővítés &amp; átalakítás</h3>
+        <p>Több tér a családnak: emeletráépítés, hozzáépítés, tetőtér – tervezéstől kivitelezésig.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+        <h3>Egyedi üvegmunka</h3>
+        <p>Modern üvegkorlátok, zuhanykabinok, térelválasztók és egyedi lézergravírozás üvegbe.</p>
+      </div>
+      <div class="svc">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 2 8l10 6 10-6-10-6ZM2 8v8l10 6 10-6V8"/></svg></div>
+        <h3>Kulcsrakész házépítés</h3>
+        <p>Új otthon a nulláról, generálkivitelezésben. <b>2026-ban indított új építésnél még 5% áfa is elérhető*.</b></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Miért Empire Build</div>
+      <h2>Amiért nyugodtan alhat a felújítás alatt is</h2>
+    </div>
+    <div class="feat-grid">
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg></div><div><h3>Fix ár, meglepetések nélkül</h3><p>Írásos árajánlat a felmérés után – amit aláírunk, azt fizeti.</p></div></div>
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><h3>Fix határidő</h3><p>Ütemtervet kap, és tartjuk. Tudja, mikor költözhet vissza.</p></div></div>
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></svg></div><div><h3>Egy csapat, egy felelős</h3><p>Minden szakág nálunk – nem kell koordinálnia senkit.</p></div></div>
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><div><h3>100% garancia</h3><p>Minden elvégzett munkára és a beépített anyagra is.</p></div></div>
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg></div><div><h3>10+ év &amp; nemzetközi tapasztalat</h3><p>Londoni és magyarországi projektek tucatjai a hátunk mögött.</p></div></div>
+      <div class="feat"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2Z"/></svg></div><div><h3>Egész Magyarországon</h3><p>Bárhol az országban vállaljuk a felmérést és a kivitelezést.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><div class="n">10+</div><div class="l">év tapasztalat</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">munkára garancia</div></div>
+      <div class="stat"><div class="n">Több száz</div><div class="l">befejezett projekt</div></div>
+      <div class="stat"><div class="n">24 óra</div><div class="l">válaszidő</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="folyamat">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Így dolgozunk</div>
+      <h2>4 lépés a kész otthonig</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Ingyenes felmérés</h3><p>Kijövünk, felmérjük a helyszínt, meghallgatjuk az elképzeléseit.</p></div>
+      <div class="step"><div class="num">2</div><h3>Fix árajánlat</h3><p>Írásos, tételes ajánlat és ütemterv – meglepetések nélkül.</p></div>
+      <div class="step"><div class="num">3</div><h3>Kivitelezés</h3><p>Egy csapat végigviszi a munkát, Ön pedig végig képben van.</p></div>
+      <div class="step"><div class="num">4</div><h3>Kulcsátadás</h3><p>Kitakarítva, garanciával, határidőre adjuk át a kész otthonát.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="why" id="velemenyek">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Ügyfeleink mondták</div>
+      <h2>Amikor a munka magáért beszél</h2>
+    </div>
+    <div class="tst-grid">
+      <div class="tst"><div class="stars">★★★★★</div><p>„Végre egy csapat, amelyik tényleg visszajött másnap is. A fürdőnk határidőre, a beígért árért készült el."</p><div class="who"><div class="av">K</div><div><b>[Ügyfél neve]</b><span>Budapest · Fürdőfelújítás</span></div></div></div>
+      <div class="tst"><div class="stars">★★★★★</div><p>„Teljes lakásfelújítást bíztunk rájuk. Mindent egy kézben intéztek, nekünk semmit nem kellett szervezni."</p><div class="who"><div class="av">T</div><div><b>[Ügyfél neve]</b><span>Debrecen · Teljes felújítás</span></div></div></div>
+      <div class="tst"><div class="stars">★★★★★</div><p>„Az egyedi üvegkorlát gyönyörű lett, pontosan olyan, ahogy elképzeltük. Profi, korrekt csapat."</p><div class="who"><div class="av">Sz</div><div><b>[Ügyfél neve]</b><span>Győr · Üvegkorlát</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guar">
+  <div class="wrap">
+    <h2>Kockázat nélkül kezdheti</h2>
+    <p>A helyszíni felmérés és az árajánlat teljesen ingyenes és semmire nem kötelezi. Csak akkor dönt, ha látja a fix árat és a határidőt.</p>
+    <a class="btn btn-dark btn-lg" href="#ajanlat">Kérem az ingyenes felmérést</a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="gyik">
+  <div class="wrap">
+    <div class="sec-head" style="margin-left:auto;margin-right:auto;text-align:center">
+      <div class="eyebrow">Gyakori kérdések</div>
+      <h2>Amit tudni szokás</h2>
+    </div>
+    <div class="faq-list">
+      <div class="q"><button>Mennyibe kerül egy felújítás?<span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="a"><p>Munkánként eltérő, ezért adunk ingyenes felmérést és utána fix, tételes árajánlatot. Így pontosan tudja előre, mennyit fizet – nincs utólagos meglepetés.</p></div></div>
+      <div class="q"><button>Mennyi idő alatt készül el?<span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="a"><p>A felmérés után konkrét ütemtervet adunk, és tartjuk a határidőt. A pontos időt a munka mérete és típusa határozza meg.</p></div></div>
+      <div class="q"><button>Adnak garanciát a munkára?<span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="a"><p>Igen. Minden elvégzett munkára és az általunk beépített anyagokra is garanciát vállalunk, írásban.</p></div></div>
+      <div class="q"><button>Az egész országban dolgoznak?<span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="a"><p>Igen, egész Magyarországon vállaljuk a felmérést és a kivitelezést. Adja meg, melyik településen van az ingatlan.</p></div></div>
+      <div class="q"><button>Új ház építését is vállalják?<span class="ch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></span></button><div class="a"><p>Igen, kulcsrakész házépítést is vállalunk generálkivitelezésben. Új építésnél 2026-ban bizonyos feltételekkel még az 5%-os kedvezményes áfa is elérhető – kérdezzen rá a felméréskor.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA + FORM -->
+<section class="final" id="ajanlat">
+  <div class="wrap">
+    <div class="form-grid">
+      <div class="info">
+        <div class="eyebrow">Ingyenes ajánlatkérés</div>
+        <h2>Kérje ingyenes felmérését – 24 órán belül hívjuk.</h2>
+        <p class="sub">Töltse ki az űrlapot, vagy hívjon minket most. Semmire nem kötelezi, csak egy fix árat és határidőt kap.</p>
+        <div class="mini">
+          <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg><a href="tel:+36300000000">+36 30 000 0000</a></div>
+          <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/></svg><a href="mailto:hello@empirebuild.hu">hello@empirebuild.hu</a></div>
+          <div class="t"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>Egész Magyarország</div>
+        </div>
+      </div>
+      <div>
+        <div class="card-form">
+          <form id="leadForm" novalidate>
+            <h3>Ingyenes ajánlatkérés</h3>
+            <p class="fnote">Töltse ki, és 24 órán belül felvesszük Önnel a kapcsolatot.</p>
+            <div class="field"><label for="name">Név *</label><input id="name" name="name" type="text" required placeholder="Az Ön neve"></div>
+            <div class="field"><label for="phone">Telefonszám *</label><input id="phone" name="phone" type="tel" required placeholder="+36 ..."></div>
+            <div class="field"><label for="service">Mire van szüksége? *</label>
+              <select id="service" name="service" required>
+                <option value="" selected disabled>Válasszon…</option>
+                <option>Teljes lakás-/házfelújítás</option>
+                <option>Fürdőszoba / konyha felújítás</option>
+                <option>Házbővítés / átalakítás</option>
+                <option>Egyedi üvegmunka</option>
+                <option>Új ház építése (kulcsrakész)</option>
+                <option>Egyéb</option>
+              </select>
+            </div>
+            <div class="field"><label for="msg">Település + pár szó a munkáról</label><textarea id="msg" name="msg" placeholder="Pl. Kecskemét, 60 m² lakás teljes felújítás"></textarea></div>
+            <button class="btn btn-primary" type="submit">Ingyenes felmérést kérek →</button>
+            <p class="form-legal">Az „Elküldés" gombra kattintva hozzájárul, hogy felvegyük Önnel a kapcsolatot. Adatait nem adjuk tovább.</p>
+          </form>
+          <div class="success" id="successBox">
+            <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <h3>Köszönjük, megkaptuk!</h3>
+            <p>24 órán belül hívjuk az egyeztetéshez. Ha sürgős, hívjon most bátran.</p>
+            <a class="btn btn-dark" href="tel:+36300000000">Inkább most hívom Önöket</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo"><span class="mark">◆</span><b>EMPIRE</b>&nbsp;<span>BUILD</span></div>
+        <p style="margin-top:12px;max-width:340px">Teljes körű felújítás, bővítés, egyedi üvegmunka és kulcsrakész házépítés – egy kézből, egész Magyarországon.</p>
+      </div>
+      <div class="foot-contact">
+        <p style="margin-bottom:8px"><b style="color:#fff">Kapcsolat</b></p>
+        <p><a href="tel:+36300000000">+36 30 000 0000</a></p>
+        <p><a href="mailto:hello@empirebuild.hu">hello@empirebuild.hu</a></p>
+        <p style="margin-top:8px">Egész Magyarország</p>
+      </div>
+      <div>
+        <p style="margin-bottom:8px"><b style="color:#fff">Szolgáltatások</b></p>
+        <div class="foot-links" style="flex-direction:column;gap:6px">
+          <a href="#szolgaltatasok">Felújítás</a>
+          <a href="#szolgaltatasok">Házbővítés</a>
+          <a href="#szolgaltatasok">Üvegmunka</a>
+          <a href="#szolgaltatasok">Házépítés</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Empire Build. Minden jog fenntartva.</span>
+      <span>* Az 5%-os áfa feltételekhez kötött, egyedi elbírálás alapján.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY MOBILE BAR -->
+<div class="mbar">
+  <a class="btn btn-ghost" href="tel:+36300000000">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.6a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.5-1.2a2 2 0 0 1 2.1-.5c.8.3 1.7.6 2.6.7a2 2 0 0 1 1.7 2Z"/></svg>
+    Hívás
+  </a>
+  <a class="btn btn-primary" href="#ajanlat">Ingyenes ajánlat</a>
+</div>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.q button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var q=b.parentElement, a=q.querySelector('.a'), open=q.classList.contains('open');
+    document.querySelectorAll('.q').forEach(function(x){x.classList.remove('open');x.querySelector('.a').style.maxHeight=null;});
+    if(!open){q.classList.add('open');a.style.maxHeight=a.scrollHeight+'px';}
+  });
+});
+// Form submit (client-side; connect to your CRM / lead tool for real capture)
+document.getElementById('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=e.target;
+  if(!f.name.value.trim()||!f.phone.value.trim()||!f.service.value){
+    [f.name,f.phone,f.service].forEach(function(i){if(!i.value)i.style.borderColor='#ff5c5c';});
+    return;
+  }
+  f.style.display='none';
+  document.getElementById('successBox').style.display='block';
+  document.getElementById('successBox').scrollIntoView({behavior:'smooth',block:'center'});
+});
+</script>
+</body>
+</html>
