@@ -11,6 +11,7 @@ n.queue=[];t=b.createElement(e);t.async=!0;
 t.src=v;s=b.getElementsByTagName(e)[0];
 s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('set', 'autoConfig', false, '1753688345908610');
 fbq('init', '1753688345908610');
 fbq('track', 'PageView');
 </script>
@@ -145,7 +146,9 @@ section{padding:60px 0}
 .field input,.field select,.field textarea{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:11px;font-family:inherit;font-size:1rem;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
 .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px var(--neon-glow)}
 .field textarea{resize:vertical;min-height:78px}
-.field.check{display:flex;align-items:flex-start;gap:10px}
+.field.check{display:flex;align-items:flex-start;gap:10px;border:1.5px solid transparent;border-radius:10px;padding:6px;margin:-6px -6px 8px}
+.field.check.invalid{border-color:#ff5c5c}
+.field.check.invalid label{color:#c0392b}
 .field.check input{width:auto;margin-top:3px;flex:none}
 .field.check label{font-weight:600;font-size:.82rem;color:var(--muted)}
 .field.check a{color:var(--ink);font-weight:700;text-decoration:underline}
@@ -366,7 +369,7 @@ footer .logo span{color:#8b8f98}
             </select>
           </div>
           <div class="field"><label for="msg">Üzenet</label><textarea id="msg" name="Üzenet" placeholder="Pár szó a projektről, tervezett kezdésről"></textarea></div>
-          <div class="field check"><input id="gdpr" name="GDPR hozzájárulás" type="checkbox" value="Elfogadva" required><label for="gdpr">Elfogadom az <a data-modal-open="modal-privacy" href="#">adatkezelési tájékoztatót</a>, és hozzájárulok, hogy megadott adataimat az Empire Build az ajánlatkérés céljából kezelje. *</label></div>
+          <div class="field check" id="gdprField"><input id="gdpr" name="GDPR hozzájárulás" type="checkbox" value="Elfogadva" required><label for="gdpr">Elfogadom az <a data-modal-open="modal-privacy" href="#">adatkezelési tájékoztatót</a>, és hozzájárulok, hogy megadott adataimat az Empire Build az ajánlatkérés céljából kezelje. *</label></div>
           <div class="form-actions">
             <button type="button" class="btn btn-ghost" id="toStep1">← Vissza</button>
             <button type="submit" class="btn btn-primary" id="submitBtn">Ajánlatot kérek</button>
@@ -507,6 +510,11 @@ var step2=form.querySelector('[data-step="2"]');
 var dot1=document.querySelector('[data-step-dot="1"]');
 var dot2=document.querySelector('[data-step-dot="2"]');
 var formError=document.getElementById('formError');
+var formErrorDefault=formError.innerHTML;
+var gdprField=document.getElementById('gdprField');
+form.gdpr.addEventListener('change',function(){
+  if(form.gdpr.checked){gdprField.classList.remove('invalid');formError.classList.remove('show');}
+});
 var submitBtn=document.getElementById('submitBtn');
 
 document.getElementById('toStep2').addEventListener('click',function(){
@@ -531,9 +539,15 @@ document.getElementById('toStep1').addEventListener('click',function(){
 form.addEventListener('submit',function(e){
   e.preventDefault();
   formError.classList.remove('show');
+  gdprField.classList.remove('invalid');
   var ok=true;
   if(!form.service.value){form.service.style.borderColor='#ff5c5c';ok=false;}
-  if(!form.gdpr.checked){ok=false;}
+  if(!form.gdpr.checked){
+    gdprField.classList.add('invalid');
+    formError.innerHTML='Kérjük, fogadja el az adatkezelési tájékoztatót a folytatáshoz.';
+    formError.classList.add('show');
+    ok=false;
+  }
   if(!ok)return;
 
   submitBtn.disabled=true;
@@ -549,6 +563,7 @@ form.addEventListener('submit',function(e){
   }).then(function(){
     window.location.href='koszonjuk.html';
   }).catch(function(){
+    formError.innerHTML=formErrorDefault;
     formError.classList.add('show');
     submitBtn.disabled=false;
     submitBtn.textContent='Ajánlatot kérek';
