@@ -37,7 +37,7 @@
   color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;overflow-x:clip;font-size:17px}
+html{scroll-behavior:smooth;overflow-x:clip;font-size:19px}
 body{
   font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
   background:var(--paper);
@@ -55,14 +55,14 @@ a{color:inherit;text-decoration:none}
 .eyebrow{font-family:"Archivo";font-weight:800;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:"Archivo";font-weight:800;font-size:1rem;padding:16px 24px;border-radius:12px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;text-align:center;line-height:1.2}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:"Archivo";font-weight:800;font-size:1.05rem;padding:16px 24px;border-radius:12px;border:2px solid transparent;cursor:pointer;transition:transform .15s ease,box-shadow .2s ease,background .2s ease;text-align:center;line-height:1.2}
 .btn-primary{background:var(--neon);color:var(--neon-ink);box-shadow:0 8px 30px var(--neon-glow)}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px var(--neon-glow)}
 .btn-dark{background:var(--ink);color:#fff}
 .btn-dark:hover{transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn-ghost:hover{background:var(--ink);color:#fff}
-.btn-lg{padding:18px 30px;font-size:1.05rem}
+.btn-lg{padding:18px 30px;font-size:1.18rem}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}
 .btn svg{width:20px;height:20px;flex:none}
 
@@ -203,7 +203,7 @@ footer .logo span{color:#8b8f98}
   .mbar{display:none}
 }
 @media(max-width:899px){
-  html{font-size:16px}
+  html{font-size:18px}
   section{padding:46px 0}
   .uc-grid{grid-template-columns:repeat(2,1fr)}
   .ref-grid{grid-template-columns:repeat(2,1fr)}
@@ -211,14 +211,14 @@ footer .logo span{color:#8b8f98}
   .cta-band .img-box{aspect-ratio:16/9;min-height:0}
 }
 @media(max-width:560px){
-  html{font-size:15.5px}
+  html{font-size:17px}
   .uc-grid{grid-template-columns:1fr}
   .card-form{padding:20px}
   .modal-box{padding:20px}
   .hero-inner{padding:48px 0;text-align:center}
   .hero .eyebrow,.hero h1,.hero .sub{margin-left:auto;margin-right:auto}
   .hero-cta{flex-wrap:nowrap;justify-content:center}
-  .hero-cta .btn{flex:1;padding-left:10px;padding-right:10px;font-size:.92rem}
+  .hero-cta .btn{flex:1;padding-left:10px;padding-right:10px;font-size:1.02rem}
   .form-actions{flex-direction:column}
   .foot-top{gap:22px}
 }
