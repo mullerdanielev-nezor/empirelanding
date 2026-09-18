@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="hu">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1753688345908610');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1753688345908610&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Empire Build | Generálkivitelezés, moduláris épületek, belsőépítészet | Egész Magyarországon</title>
@@ -138,12 +155,6 @@ section{padding:60px 0}
 .form-step.active{display:block}
 .form-error{display:none;background:#ffe8e8;border:1px solid #ff9d9d;color:#8a1f1f;border-radius:10px;padding:12px 14px;font-size:.85rem;margin-bottom:14px;font-weight:700}
 .form-error.show{display:block}
-.success{display:none;text-align:center;padding:20px 6px}
-.success .big{width:60px;height:60px;border-radius:50%;background:var(--neon);display:grid;place-items:center;margin:0 auto 16px;box-shadow:0 8px 26px var(--neon-glow)}
-.success .big svg{width:32px;height:32px;color:var(--ink)}
-.success h3{color:var(--ink);margin-bottom:8px}
-.success p{color:var(--muted);font-weight:600}
-
 /* faq */
 .faq-list{max-width:780px;margin:0 auto}
 .q{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;overflow:hidden;background:#fff}
@@ -331,10 +342,10 @@ footer .logo span{color:#8b8f98}
         <div class="form-step active" data-step="1">
           <h3>Kapcsolattartási adatok</h3>
           <p class="fnote">Kezdjük az alapokkal.</p>
-          <div class="field"><label for="name">Név *</label><input id="name" name="name" type="text" required placeholder="Az Ön neve"></div>
-          <div class="field"><label for="email">E-mail *</label><input id="email" name="email" type="email" required placeholder="pelda@email.hu"></div>
-          <div class="field"><label for="phone">Telefonszám *</label><input id="phone" name="phone" type="tel" required placeholder="+36 ..."></div>
-          <div class="field"><label for="city">Település *</label><input id="city" name="city" type="text" required placeholder="Pl. Kecskemét"></div>
+          <div class="field"><label for="name">Név *</label><input id="name" name="Név" type="text" required placeholder="Az Ön neve"></div>
+          <div class="field"><label for="email">E-mail *</label><input id="email" name="Email cím" type="email" required placeholder="pelda@email.hu"></div>
+          <div class="field"><label for="phone">Telefonszám *</label><input id="phone" name="Telefonszám" type="tel" required placeholder="+36 ..."></div>
+          <div class="field"><label for="city">Település *</label><input id="city" name="Település" type="text" required placeholder="Pl. Kecskemét"></div>
           <div class="form-actions">
             <button type="button" class="btn btn-primary" id="toStep2">Tovább →</button>
           </div>
@@ -343,7 +354,7 @@ footer .logo span{color:#8b8f98}
           <h3>Miben segíthetünk?</h3>
           <p class="fnote">Így pontosabb ajánlatot tudunk adni.</p>
           <div class="field"><label for="service">Mire van szüksége? *</label>
-            <select id="service" name="service" required>
+            <select id="service" name="Milyen szolgáltatásra van szüksége" required>
               <option value="" selected disabled>Válasszon…</option>
               <option>Generálkivitelezés</option>
               <option>Moduláris épület</option>
@@ -354,19 +365,14 @@ footer .logo span{color:#8b8f98}
               <option>Egyéb</option>
             </select>
           </div>
-          <div class="field"><label for="msg">Üzenet</label><textarea id="msg" name="msg" placeholder="Pár szó a projektről, tervezett kezdésről"></textarea></div>
-          <div class="field check"><input id="gdpr" name="gdpr" type="checkbox" required><label for="gdpr">Elfogadom az <a data-modal-open="modal-privacy" href="#">adatkezelési tájékoztatót</a>, és hozzájárulok, hogy megadott adataimat az Empire Build az ajánlatkérés céljából kezelje. *</label></div>
+          <div class="field"><label for="msg">Üzenet</label><textarea id="msg" name="Üzenet" placeholder="Pár szó a projektről, tervezett kezdésről"></textarea></div>
+          <div class="field check"><input id="gdpr" name="GDPR hozzájárulás" type="checkbox" value="Elfogadva" required><label for="gdpr">Elfogadom az <a data-modal-open="modal-privacy" href="#">adatkezelési tájékoztatót</a>, és hozzájárulok, hogy megadott adataimat az Empire Build az ajánlatkérés céljából kezelje. *</label></div>
           <div class="form-actions">
             <button type="button" class="btn btn-ghost" id="toStep1">← Vissza</button>
             <button type="submit" class="btn btn-primary" id="submitBtn">Ajánlatot kérek</button>
           </div>
         </div>
       </form>
-      <div class="success" id="successBox">
-        <div class="big"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg></div>
-        <h3>Köszönjük, megkaptuk!</h3>
-        <p>Hamarosan felvesszük Önnel a kapcsolatot.</p>
-      </div>
     </div>
   </div>
 </section>
@@ -541,9 +547,7 @@ form.addEventListener('submit',function(e){
     if(!res.ok) throw new Error('Submit failed');
     return res.json();
   }).then(function(){
-    form.style.display='none';
-    document.getElementById('stepsBar').style.display='none';
-    document.getElementById('successBox').style.display='block';
+    window.location.href='koszonjuk.html';
   }).catch(function(){
     formError.classList.add('show');
     submitBtn.disabled=false;
