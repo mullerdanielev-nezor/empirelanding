@@ -76,7 +76,8 @@ header{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdro
 
 /* image box (real photos, object-fit cover) */
 .img-box{position:relative;overflow:hidden;border-radius:14px;background:#e4e7dd}
-.img-box img{width:100%;height:100%;object-fit:cover}
+.img-box img{width:100%;height:100%;object-fit:cover;filter:grayscale(55%) contrast(1.12) brightness(.93) saturate(1.4)}
+.img-box::after{content:"";position:absolute;inset:0;background:linear-gradient(155deg,rgba(11,11,15,.32),rgba(56,63,38,.12) 55%,rgba(180,255,57,.14));mix-blend-mode:multiply;pointer-events:none}
 
 /* hero */
 .hero{position:relative;min-height:500px;display:flex;align-items:center;color:#fff;overflow:hidden}
@@ -235,11 +236,11 @@ footer .logo span{color:#8b8f98}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="img-box"><img src="images/hero.jpg" alt="Modern épület naplementében" loading="eager"></div>
+  <div class="img-box"><img src="images/hero.jpg" alt="Kivitelezők munka közben egy épülő lakóparkban" loading="eager"></div>
   <div class="wrap hero-inner">
-    <div class="eyebrow">Empire Build · Egész Magyarországon</div>
-    <h1>Amit elvállalunk, azt be is fejezzük</h1>
-    <p class="sub">30 fős, összeszokott csapattal dolgozunk generálkivitelezésen, moduláris épületeken, belsőépítészeten és üvegmunkákon, lakóingatlanban és üzleti térben egyaránt, országosan.</p>
+    <div class="eyebrow">Empire Build · Országosan</div>
+    <h1>Generálkivitelezés, amire számíthat</h1>
+    <p class="sub">Lakóingatlanban és üzleti térben egyaránt vállalunk generálkivitelezést, moduláris épületeket, belsőépítészetet és üvegmunkákat. 30 fős, összeszokott csapatunkkal dolgozunk, az ország egész területén.</p>
     <div class="hero-cta">
       <a class="btn btn-primary btn-lg" href="#ajanlat">Ingyenes ajánlatot kérek</a>
       <a class="btn btn-ghost btn-lg" style="background:#fff" href="tel:+36203639271">Hívjon most</a>

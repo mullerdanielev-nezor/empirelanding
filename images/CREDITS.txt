@@ -7,10 +7,10 @@ https://www.pexels.com/license/
 Ezek STOCK fotók, NEM az Empire Build saját projektjei.
 Publikálás előtt cserélje valódi cégfotókra, ha van rá lehetőség.
 
-hero.jpg           - pexels.com/photo/18254867 (Willian Justen de Vasconcellos)
+hero.jpg           - pexels.com/photo/17410739 (uj hazak epitese, dolgozokkal)
 svc-generalkiv.jpg - pexels.com/photo/2383650  (Davide Locatelli)
 svc-modul.jpg      - pexels.com/photo/15614674
-svc-belsoep.jpg    - pexels.com/photo/20390760 (Paul Seling)
+svc-belsoep.jpg    - pexels.com/photo/3316922  (valodi enterior foto, nem 3D render)
 svc-burkolas.jpg   - pexels.com/photo/9690090
 svc-festes.jpg     - pexels.com/photo/5493653  (Antoni Shkraba)
 svc-uveg.jpg       - pexels.com/photo/6444248  (Max Vakhtbovych)
