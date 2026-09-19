@@ -14,12 +14,10 @@ svc-belsoep.jpg    - pexels.com/photo/3316922  (valodi enterior foto, nem 3D ren
 svc-burkolas.jpg   - pexels.com/photo/9690090
 svc-festes.jpg     - pexels.com/photo/5493653  (Antoni Shkraba)
 svc-uveg.jpg       - pexels.com/photo/6444248  (Max Vakhtbovych)
-ref-1.jpg          - pexels.com/photo/10202865 (This Vikto)
-ref-2.jpg          - pexels.com/photo/13890649 (Aravind P.S.)
-ref-3.jpg          - pexels.com/photo/16368435 (Marianna Zuzanna)
-ref-4.jpg          - pexels.com/photo/13319079
-ref-5.jpg          - pexels.com/photo/5691530  (Ksenia Chernaya)
-ref-6.jpg          - pexels.com/photo/5691533  (Ksenia Chernaya)
-ref-7.jpg          - pexels.com/photo/8134804  (Max Vakhtbovych)
-ref-8.jpg          - pexels.com/photo/7587880
 cta.jpg            - pexels.com/photo/6238679
+
+--------------------------------------------------
+ref-1.jpg .. ref-8.jpg: 2026-09-19-től VALÓDI Empire Build
+projektfotók (a felhasználó töltötte fel, images/empirelandingképek/
+mappából, tömörítve/átméretezve JPEG-be). Ezek NEM Pexels-képek,
+nem stock fotók, nem szükséges őket lecserélni.

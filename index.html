@@ -35,8 +35,9 @@ src="https://www.facebook.com/tr?id=1753688345908610&ev=PageView&noscript=1"
    Ugyanaz a jogi entitás (Design Beruházási és Dekorációs Kft.) üzemelteti mindkét márkát. Ellenőrizze
    publikálás előtt, hogy ez az adat még aktuális.
    Az oldal szándékosan nem tartalmaz árakat, a felhasználó kérésére eltávolítva.
-   A fotók (images/) ingyenes, jogtiszta Pexels-képek, lásd images/CREDITS.txt. Ezek STOCK fotók,
-   nem az Empire Build saját projektjei, publikálás előtt cserélje valódi referenciafotókra.
+   A referenciák szekció 8 fotója (images/ref-1..8.jpg) valódi Empire Build projektfotó, a felhasználó
+   töltötte fel. A hero és a szolgáltatás-kártyák fotói továbbra is ingyenes Pexels stock képek,
+   lásd images/CREDITS.txt, ezeket érdemes valódi cégfotóra cserélni, ha lesz rá anyag.
    Az ajánlatkérő űrlap a FormSubmit.co szolgáltatáson keresztül e-mailben küldi az adatokat,
    az első éles beküldés után a célcímre aktiváló e-mail érkezik, amit jóvá kell hagyni.
    ============================================================ */
@@ -125,8 +126,10 @@ section{padding:60px 0}
 
 /* reference gallery */
 .ref{background:var(--paper-2)}
-.ref-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.ref-grid .img-box{aspect-ratio:1/1}
+.ref-grid{columns:2;column-gap:14px}
+.ref-grid .img-box{break-inside:avoid;margin-bottom:14px}
+.ref-grid .img-box img{filter:none;height:auto}
+.ref-grid .img-box::after{display:none}
 .ref-note{text-align:center;color:var(--muted);font-weight:700;margin-top:22px;font-size:.88rem}
 
 /* multi-step form */
@@ -214,12 +217,12 @@ footer .logo span{color:#8b8f98}
 @media(min-width:900px){
   footer{padding-bottom:44px}
   .mbar{display:none}
+  .ref-grid{columns:3}
 }
 @media(max-width:899px){
   html{font-size:18px}
   section{padding:46px 0}
   .uc-grid{grid-template-columns:repeat(2,1fr)}
-  .ref-grid{grid-template-columns:repeat(2,1fr)}
   .cta-band .inner{grid-template-columns:1fr}
   .cta-band .img-box{aspect-ratio:16/9;min-height:0}
 }
@@ -310,16 +313,16 @@ footer .logo span{color:#8b8f98}
       <p>Egy ízelítő abból, amilyen hangulatú tereket szoktunk átadni.</p>
     </div>
     <div class="ref-grid">
-      <div class="img-box"><img src="images/ref-1.jpg" alt="Kivitelezők az építkezésen" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-2.jpg" alt="Állványzaton dolgozó szakemberek" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-3.jpg" alt="Kivitelező az építkezésen sétál" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-4.jpg" alt="Építkezés napnyugtakor" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-5.jpg" alt="Felújítás alatt álló világos belső tér" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-6.jpg" alt="Felújítás alatt álló lakás enteriőr" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-7.jpg" alt="Fa lépcső üvegkorláttal" loading="lazy"></div>
-      <div class="img-box"><img src="images/ref-8.jpg" alt="Modern ház homlokzata" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-1.jpg" alt="Tetőtéri szoba felújítása előtte-utána: festés és padlózás" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-2.jpg" alt="Folyosó padlóburkolása félkész és kész állapotban" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-3.jpg" alt="Lépcsőház felújítása előtte-utána, egyedi fali dekorral" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-4.jpg" alt="Mintás padlóburkolat lépcsőn, elkészült állapotban" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-5.jpg" alt="Szoba felújítása előtte-utána, festéssel és nyílászáróval" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-6.jpg" alt="Elkészült csempézett fürdőszoba" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-7.jpg" alt="Burkolási munka folyamatban, lépcsős térben" loading="lazy"></div>
+      <div class="img-box"><img src="images/ref-8.jpg" alt="Fürdőszoba aljzatképzés munka közben" loading="lazy"></div>
     </div>
-    <p class="ref-note">Illusztráció: ezek egyelőre válogatott stock fotók, nem az Empire Build saját projektjei. Publikálás előtt cserélje valódi referenciafotókra.</p>
+    <p class="ref-note">Valódi Empire Build projektfotók, korábbi munkáinkból.</p>
   </div>
 </section>
 
